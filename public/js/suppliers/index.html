@@ -1,0 +1,23 @@
+<div>
+
+</div>
+<a class="btn btn-primary" href="http://192.168.1.4:8081/#/">home</a>
+<input ng-model="search.name" focus-if>
+<button class="btn btn-warning" ui-sref="new-delivery">Tambah Supplier</button>
+<table class="table table-nonfluid table-hover">
+    <tr ng-repeat="supplier in suppliers|filter:search" ui-sref="supplier({supplierId:supplier._id})">
+        <td>
+            {{supplier.name}}
+        </td>
+        <td>
+            <ul>
+                <li ng-repeat="contact in supplier.contacts">
+                    <span>{{contact.name}}</span>
+                    <span>{{contact.phone}}</span>
+                    <span>{{contact.position}}</span>
+                </li>
+            </ul>
+        </td>
+    </tr>
+</table>
+

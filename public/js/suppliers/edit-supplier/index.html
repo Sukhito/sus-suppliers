@@ -1,0 +1,42 @@
+<div class="col-xs-8 col-xs-offset-2">
+    <div classs="row">
+        <button class="btn btn-success" type="button" ng-click="save()">Save</button>
+        <button class="btn btn-danger" type="button" ui-sref="supplier({supplierId:supplier._id})">Cancel</button>
+    </div>
+    <div class="row">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td><input class="form-control" type="text" ng-model="supplier.name"></td>
+                </tr>
+                <tr>
+                    <td>Contacts
+                        <button class="btn btn-success btn-xs" ng-click="addContact(supplier.contacts)">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                    <td>      
+                        <ul style="list-style-type: none;margin: 0;padding: 0;">
+                            <li ng-repeat="contact in supplier.contacts">
+                                <div class="input-group">
+                                    <input placeholder="Nama" class="form-control" type="text" ng-model="contact.name">
+                                    <span class="input-group-addon"></span>
+                                    <input placeholder="Telepon" class="form-control" type="text" ng-model="contact.phone">
+                                    <span class="input-group-addon"></span>
+                                    <input placeholder="Posisi" class="form-control" type="text" ng-model="contact.position">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" ng-click="deleteContact($index,supplier.contacts)">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>                              
+                                    </span>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>	
+        </div>
+    </div>
+</div>
